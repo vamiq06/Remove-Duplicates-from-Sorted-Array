@@ -1,16 +1,17 @@
 #Remove element from sorted array
+
 def removeDuplicates(nums):
-    k = 1
-    for i in range(len(nums)-1):
-        if nums[i]==max(nums):
-            break
-        if nums[i]==nums[i+1]:
-            nums.pop(i)
-            nums.append(nums[i])
-            i -= 1
-        else:
+    i = 0
+    k = 0
+    while i < len(nums)-1:
+        if nums[i] < nums[i+1]:
+            i += 1
             k += 1
-    return k, nums
+            nums[k] = nums[i]
+        else:
+            i += 1
+    return k+1, nums
+
 
 nums = [0,0,1,1,1,2,2,3,3,4]
 
